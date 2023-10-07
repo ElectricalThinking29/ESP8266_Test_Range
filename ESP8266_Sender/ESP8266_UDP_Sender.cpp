@@ -29,13 +29,11 @@ limitations under the License.
 // Name and password of AP
 const char* ssid = "ESP8266_AP";
 const char* password = "12345678";
-
 // IP Address and port of UDP server
 IPAddress ip(192, 168, 4, 1);
 IPAddress gateway(192, 168, 4, 1);
 IPAddress subnet(255, 255, 255, 0);
 const int port = 80;
-
 // Create UDP object
 WiFiUDP udp;
 
@@ -81,10 +79,6 @@ void setup() {
   // Start UDP
   udp.begin(port);
   Serial.println("UDP started");
-  // Setting timer interrupt call sendMessage function every second
-  timer1_attachInterrupt(sendMessage);
-  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP); // TIM_DIV16 -> 80MHz/16 = 5 ticks/s -> 0,2s/tick
-  timer1_write(5000000); // go to "sendMessage" every 5 000 000 ticks * 0,2s/tick = 1s
 }
 
 // loop function
@@ -95,6 +89,8 @@ void loop() {
     Serial.print("Received: ");
     Serial.println(line);
   }
+  sendMessage();
+  delay(1000);
 }
 
 // ******* This is the END of UDP Sender program *********

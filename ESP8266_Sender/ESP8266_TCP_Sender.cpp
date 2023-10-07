@@ -87,10 +87,6 @@ void setup() {
   // Start Web server
   server.begin();
   Serial.println("HTTP server started");
-  // Setting timer iinterrpt, call sendMessage function every second
-  timer1_attachInterrupt(sendMessage);
-  timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP); // TIM_DIV16 -> 80MHz/16 = 5 ticks/us -> 1 tick = 0,2us
-  timer1_write(5000000); // will call the function declared in timer1_attachInterrupt() after 5 000 000 ticks * 0,2us = 1s
 }
 
 // Loop function
@@ -106,6 +102,11 @@ void loop() {
       // Print to debug serial port
       Serial.println("TCP client connected");
     }
+  }
+  else
+  {
+    sendMessage();
+    delay(1000);
   }
 }
 

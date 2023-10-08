@@ -18,7 +18,7 @@ Made by @ElectricalThinking29
 |   UDP    |          17 m *       |
 |  ESP-NOW |          60 m *       |
 ```
-> **Note:**
+> **Note**
 > + I used the ESP8266 without any additional signal support devices (like antennas).
 > + Because I use visualization to judge whether the packet transmission is successful or failed (when I wait for the LED light for too long, I consider it failed), so the distance values mentioned above are not 100% accurate.
 > + I have programmed the ESP8266 to send a packet about 22 bytes long. When receiving a packet, if there is an interruption that causes the packet to not be intact, the receiving party must wait for the next send to receive the packet again. This takes a lot of time, especially over long distances, because it is difficult to send an entire packet intact in one go. This means that the distance the ESP8266 can receive signals can be farther if the packet size is reduced.

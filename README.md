@@ -10,17 +10,18 @@ Made by @ElectricalThinking29
 + First, you need two board ESP8266 and configure your IDE (Arduino IDE or PlatformIO) to be able to program. You can consult the configuration for ESP8266 12-E if you are using PlatformIO [here](platformio.ini)
 + Second, you need to decide which board will be [the sender](ESP8266_Sender) and which is [the receiver](ESP8266_Receiver). In each folders, you will find 3 programs corresponding to 3 protocols, use it wisely.
 
-# Results and Reviews
-+ Below is the result's data.
-![Result2](result.jpg)
-+ As you can see, the error is pretty large, from few to over 100 %. If we ignore the case
-where the transmission's velocity is negative, the error is still go up to 50 %.
-+ There are a number of issues that I think will improve measurement results:
-  * Using more appropriate hardwares for measuring Time of Flight (ToF) of the message via WIfi
-  * Using CSI data to get better timming
-  * Improving the programs for better and faster reading
-+ Even though I did this project just for fun and to satisfy my curiosity, I also don't mind listening
-to your comments. If you want to ask questions, you can contact me at the address below.
+# Results
++ I conducted this experiment outdoors. The results can be summarized as follows:
+```
+|_Protocol_|_Communicated distance_|
+|   TCP    |          24 m         |
+|   UDP    |          17 m         |
+|  ESP-NOW |          60 m         |
+```
+> **Note**
+> + I used the ESP8266 without any additional signal support devices (like antennas).
+> + Because I use visualization to judge whether the packet transmission is successful or failed (when I wait for the LED light for too long, I consider it failed), so the distance values mentioned above are not 100% accurate.
+> + 
 
 # Youtube Channel
 + You can watch this project's video on Youtube: https://youtu.be/mwmY_hU-UsM

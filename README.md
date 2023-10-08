@@ -15,16 +15,18 @@ Made by @ElectricalThinking29
 ```
 |_Protocol_|_Communicated distance_|
 |   TCP    |          24 m         |
-|   UDP    |          17 m         |
-|  ESP-NOW |          60 m         |
+|   UDP    |          17 m *       |
+|  ESP-NOW |          60 m *       |
 ```
-> **Note**
+> **Note:**
 > + I used the ESP8266 without any additional signal support devices (like antennas).
 > + Because I use visualization to judge whether the packet transmission is successful or failed (when I wait for the LED light for too long, I consider it failed), so the distance values mentioned above are not 100% accurate.
-> + 
+> + I have programmed the ESP8266 to send a packet about 22 bytes long. When receiving a packet, if there is an interruption that causes the packet to not be intact, the receiving party must wait for the next send to receive the packet again. This takes a lot of time, especially over long distances, because it is difficult to send an entire packet intact in one go. This means that the distance the ESP8266 can receive signals can be farther if the packet size is reduced.
+> + About UDP's result, because the program will not be able to reconnect when the signal is lost (With TCP and ESP-NOW, this is possible). Because of that, I could not measure the distance properly. But I assume that the "proper" result may be the same as TCP. 
+> + About ESP-NOW's result, because at that distance, I waited for 15 seconds and LED still not blink so I thought that it failed at that distance, bút after few more seconds, the LED is blink again. So I did again and waited longer. Thanks to that, I have confirmed that ESP8266 can receive signals at a distance of **more than _86 m_**.
 
 # Youtube Channel
-+ You can watch this project's video on Youtube: https://youtu.be/mwmY_hU-UsM
++ You can watch this project's video on Youtube: [Here](https://youtu.be/BjO9iw908uY)
 + If you can, please support me on my Youtube's channel: @ElectricalThinking29.
 
 # Contact
